@@ -1,0 +1,131 @@
+Statical analysis code
+
+1(import data)
+ df=read.csv(“C:/users/HP/Desktop/R project work.csv”)
+print(df)
+
+
+2(statical analysis salary)
+# Assuming the dataset is stored in a data frame named 'df'
+
+# Extracting the 'Salary' column
+salary <- df$Salary
+
+# Calculating mean, median, variance, minimum, maximum, standard deviation, range, and quantiles
+mean_salary <- mean(salary)
+median_salary <- median(salary)
+variance_salary <- var(salary)
+min_salary <- min(salary)
+max_salary <- max(salary)
+sd_salary <- sd(salary)
+range_salary <- range(salary)
+quantiles_salary <- quantile(salary)
+
+# Print the results
+cat("Mean Salary:", mean_salary, "\n")
+cat("Median Salary:", median_salary, "\n")
+cat("Variance of Salary:", variance_salary, "\n")
+cat("Minimum Salary:", min_salary, "\n")
+cat("Maximum Salary:", max_salary, "\n")
+cat("Standard Deviation of Salary:", sd_salary, "\n")
+cat("Range of Salary:", range_salary, "\n")
+cat("Quantiles of Salary:", quantiles_salary, "\n")
+
+
+
+3(statical analysis of age and years of experience)
+
+# Assuming the dataset is stored in a data frame named 'df'
+
+# Extracting the 'Years of Experience' and 'Age' columns
+experience <- df$Years.of.Experience
+age <- df$age
+
+# Function to print summary statistics
+print_summary_stats <- function(data, name) {
+  cat("Summary statistics for", name, "\n")
+  cat("Mean:", mean(data), "\n")
+  cat("Median:", median(data), "\n")
+  cat("Variance:", var(data), "\n")
+  cat("Minimum:", min(data), "\n")
+  cat("Maximum:", max(data), "\n")
+  cat("Standard Deviation:", sd(data), "\n")
+  cat("Range:", range(data), "\n")
+  cat("Quantiles:", quantile(data), "\n\n")
+}
+
+# Print summary statistics for 'Years of Experience'
+print_summary_stats(experience, "Years of Experience")
+
+# Print summary statistics for 'Age'
+print_summary_stats(age, "Age")
+
+
+
+4(summary of dataset)
+summary(df)
+
+
+5(description of dataset)
+library(psych)
+describe(df)
+
+
+DATASET VISUALISATION
+
+
+1(SCATTER PLOT OF YEARS OF EXPERIENCE VS SALARY)
+# Load the required library
+library(ggplot2)
+library(psych)
+
+# Assuming the dataset is stored in a data frame named 'df'
+# Create a scatter plot using ggplot2
+ggplot(df, aes(x = Years.of.Experience, y = Salary)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Years of Experience vs. Salary",
+       x = "Years of Experience",
+       y = "Salary")
+
+
+
+2(BAR CHART OF SALARY BY JOB TITLE)
+
+# Load the required library
+library(ggplot2)
+
+# Assuming the dataset is stored in a data frame named 'df'
+
+# Create a bar chart for Salary
+ggplot(df, aes(x = Job.Title, y = Salary, fill = Job.Title)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart of Salary by Job Title",
+       x = "Job Title",
+       y = "Salary") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+3(PIE CHART OF GENDER DISTRIBUTION)
+# Load the required library
+library(ggplot2)
+
+# Assuming the dataset is stored in a data frame named 'df'
+
+# Create a pie chart for Gender distribution
+ggplot(df, aes(x = "", fill = Gender)) +
+  geom_bar(stat = "count", width = 1) +
+  coord_polar("y") +
+  labs(title = "Pie Chart of Gender Distribution") +
+  theme_void()  # Removes unnecessary elements like axis labels and ticks
+
+
+
+
+
+
+
+
+
+
+
+
